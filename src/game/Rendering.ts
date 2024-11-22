@@ -1,3 +1,4 @@
+// @ts-types="@types/three"
 import { CineonToneMapping, PCFSoftShadowMap, Scene, WebGLRenderer } from "three";
 import Game from "./Game.ts";
 import View from "./View.ts";

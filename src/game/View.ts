@@ -1,3 +1,4 @@
+// @ts-types="@types/three"
 import { PerspectiveCamera, Scene } from "three";
 import { OrbitControls } from "three/examples/jsm/Addons.js";
 import Game from "./Game.ts";

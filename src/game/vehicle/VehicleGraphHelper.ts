@@ -1,3 +1,4 @@
+// @ts-types="@types/three"
 import { ConeGeometry, Group, Mesh, MeshBasicMaterial, SphereGeometry, Vector3 } from "three";
 import VehicleGraph, { UP } from "./VehicleGraph.ts";
 import VehicleGraphNode from "./VehicleGraphNode.ts";

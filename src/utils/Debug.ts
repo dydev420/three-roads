@@ -1,3 +1,4 @@
+// @ts-types "tweakpane"
 import { Pane } from 'tweakpane';
 
 export default class Debug {
@@ -5,7 +6,7 @@ export default class Debug {
 
   constructor() {
     this.ui = new Pane({
-      title: 'Experience Debug'
+      title: 'Game Debug'
     });
   }
 }

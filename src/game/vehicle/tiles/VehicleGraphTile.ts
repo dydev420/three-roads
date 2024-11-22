@@ -1,3 +1,4 @@
+// @ts-types="@types/three"
 import { Group, MathUtils } from "three";
 import VehicleGraphNode from "../VehicleGraphNode.ts";
 

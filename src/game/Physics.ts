@@ -1,3 +1,4 @@
+// @ts-types="@types/three"
 import { Group, Mesh, Quaternion } from "three";
 import RAPIER, { ColliderDesc, RigidBodyDesc } from "@dimforge/rapier3d";
 import Game from "./Game.ts";

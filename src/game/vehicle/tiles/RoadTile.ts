@@ -8,12 +8,12 @@ import TRoadTile from "./TRoadTile.ts";
 abstract class RoadTile {
   static create(x: number, y: number, rotation: number, type: string): VehicleGraphTile {
     switch (type) {
-      case 'straight': return new StraightRoadTile(x, y, rotation, type);
-      case 't': return new TRoadTile(x, y, rotation, type);
-      case 'cross': return new CrossRoadTile(x, y, rotation, type);
-      case 'corner': return new CornerRoadTile(x, y, rotation, type);
-      case 'end': return new EndRoadTile(x, y, rotation, type);
-      default: return new StraightRoadTile(x, y, rotation, type);
+      case 'straight': return new StraightRoadTile(x, y, rotation);
+      case 't': return new TRoadTile(x, y, rotation);
+      case 'cross': return new CrossRoadTile(x, y, rotation);
+      case 'corner': return new CornerRoadTile(x, y, rotation);
+      case 'end': return new EndRoadTile(x, y, rotation);
+      default: return new StraightRoadTile(x, y, rotation);
     }
   };
 }

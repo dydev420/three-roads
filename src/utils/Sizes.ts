@@ -1,3 +1,4 @@
+// @ts-types="@types/three"
 import { EventDispatcher } from "three";
 
 class Sizes extends EventDispatcher {

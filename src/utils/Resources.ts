@@ -1,3 +1,4 @@
+// @ts-types="@types/three"
 import { CubeTexture, CubeTextureLoader, EventDispatcher, Texture, TextureLoader } from "three";
 import { GLTF, GLTFLoader } from "three/examples/jsm/Addons.js";
 

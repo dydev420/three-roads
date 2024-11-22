@@ -1,3 +1,4 @@
+// @ts-types="@types/three"
 import { Group, Vector3 } from "three";
 import VehicleGraphHelper from "./VehicleGraphHelper.ts";
 import config from "../config.ts";

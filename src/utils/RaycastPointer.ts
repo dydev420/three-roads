@@ -1,3 +1,4 @@
+// @ts-types="@types/three"
 import { Intersection, PerspectiveCamera, Raycaster, Scene, Vector2 } from "three";
 
 export default class RaycastPointer {

@@ -1,3 +1,4 @@
+// @ts-types="@types/three"
 import { BoxGeometry, Group, MathUtils, Mesh, MeshStandardMaterial } from "three";
 
 const geometry = new BoxGeometry(1, 1, 1);

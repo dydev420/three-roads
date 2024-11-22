@@ -1,3 +1,4 @@
+// @ts-types="@types/three"
 import { Group, Material, Mesh, Vector3 } from "three";
 import VehicleGraphNode from "./VehicleGraphNode.ts";
 import { FORWARD } from "./VehicleGraph.ts";

@@ -1,4 +1,6 @@
+// @ts-types="@types/three"
 import { BufferGeometry, Float32BufferAttribute, LineBasicMaterial, LineSegments } from "three";
+// @ts-types="tweakpane"
 import { FolderApi, TpChangeEvent } from "tweakpane";
 import Game from "./Game.ts";
 
