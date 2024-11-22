@@ -1,3 +1,4 @@
+import './Game.css';
 import useGame from './hooks/useGame.tsx';
 import Toolbar from "./ui/toolbar/Toolbar.tsx";
 
