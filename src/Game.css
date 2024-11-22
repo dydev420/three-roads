@@ -1,7 +1,23 @@
+@tailwind base;
 @tailwind components;
+@tailwind utilities;
 
 /* custom tailwind component classes */
 @layer components {
+  .page {
+    @apply
+      flex
+      w-full
+      h-screen
+      items-center
+      justify-center
+      bg-gray-900
+      text-gray-300
+      font-bold
+      text-3xl
+    ;
+  }
+
   .sidebar {
     @apply
       fixed
