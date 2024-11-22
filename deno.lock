@@ -15,6 +15,7 @@
     "npm:tweakpane@^4.0.5": "4.0.5",
     "npm:vite-plugin-glsl@*": "1.3.0_vite@5.4.10_@types+node@22.5.4",
     "npm:vite-plugin-glsl@^1.3.0": "1.3.0_vite@5.4.10_@types+node@22.5.4",
+    "npm:vite-plugin-wasm@^3.3.0": "3.3.0_vite@5.4.10_@types+node@22.5.4",
     "npm:vite@*": "5.4.10",
     "npm:vite@^5.4.9": "5.4.10"
   },
@@ -609,6 +610,12 @@
         "vite@5.4.10_@types+node@22.5.4"
       ]
     },
+    "vite-plugin-wasm@3.3.0_vite@5.4.10_@types+node@22.5.4": {
+      "integrity": "sha512-tVhz6w+W9MVsOCHzxo6SSMSswCeIw4HTrXEi6qL3IRzATl83jl09JVO1djBqPSwfjgnpVHNLYcaMbaDX5WB/pg==",
+      "dependencies": [
+        "vite@5.4.10_@types+node@22.5.4"
+      ]
+    },
     "vite@5.4.10": {
       "integrity": "sha512-1hvaPshuPUtxeQ0hsVH3Mud0ZanOLwVTneA1EgbAM5LhaZEqyPWGRQ7BtaMvUrTDeEaC8pxtj6a6jku3x4z6SQ==",
       "dependencies": [
@@ -648,6 +655,7 @@
       "npm:three@0.170",
       "npm:tweakpane@^4.0.5",
       "npm:vite-plugin-glsl@^1.3.0",
+      "npm:vite-plugin-wasm@^3.3.0",
       "npm:vite@^5.4.9"
     ]
   }
