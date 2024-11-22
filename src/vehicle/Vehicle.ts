@@ -14,6 +14,9 @@ export default class Vehicle extends Group {
   destinationWorldPosition: Vector3;
   originToDestination: Vector3;
   orientation: Vector3;
+
+  recentNodes: VehicleGraphNode[];
+  avoidTurn: boolean;
   
   
   constructor(origin: VehicleGraphNode, destination: VehicleGraphNode, mesh: Mesh) {
@@ -29,6 +32,9 @@ export default class Vehicle extends Group {
     this.destinationWorldPosition = new Vector3();
     this.originToDestination = new Vector3();
     this.orientation = new Vector3();
+
+    this.recentNodes = [];
+    this.avoidTurn = false;
 
     this.updateWorldPosition();
   }
@@ -64,11 +70,20 @@ export default class Vehicle extends Group {
     this.quaternion.setFromUnitVectors(FORWARD, this.orientation);
   };
 
+  selectNextDestination = () => {
+    this.recentNodes.push(this.origin);
+    if (this.recentNodes.length > config.vehicle.maxHistory) {
+      this.recentNodes.shift();
+    }
+  
+    return this.origin.getRandomNextNode(this.recentNodes);
+  };
+
   resetCycle = () => {
     this.cycleStartTime = Date.now();
 
     this.origin = this.destination;
-    const nextDestination = this.origin.getRandomNextNode();
+    const nextDestination = this.selectNextDestination();
 
     if (!nextDestination) {
       this.dispose();
@@ -127,5 +142,7 @@ export default class Vehicle extends Group {
   dispose = () => {
     this.getMaterial()?.dispose();
     this.removeFromParent();
+
+    this.recentNodes = [];
   };
 }

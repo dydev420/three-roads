@@ -9,8 +9,10 @@ const config: GameConfig = {
     speed: 0.0005,
     fadeTime: 1000,
     maxLifetime: 10000,
-    maxVehicleCount: 10,
+    maxVehicleCount: 1,
     spawnInterval: 1000,
+    maxRecursiveRetry: 20,
+    maxHistory: 4,
   },
 };
 

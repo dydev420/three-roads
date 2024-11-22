@@ -18,6 +18,8 @@ export type VehicleConfig = {
   maxLifetime: number;
   maxVehicleCount: number;
   spawnInterval: number;
+  maxRecursiveRetry: number;
+  maxHistory: number;
 };
 
 export default class VehicleGraph extends Group {
