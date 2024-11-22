@@ -23,11 +23,11 @@ const sources: Array<ResourceInfo> = [
     type: 'texture',
     path: 'textures/dirt/normal.jpg',
   },
-  {
-    name: 'foxModel',
-    type: 'gltfModel',
-    path: 'models/fox/glTF/fox.gltf',
-  },
+  // {
+  //   name: 'foxModel',
+  //   type: 'gltfModel',
+  //   path: 'models/fox/glTF/fox.gltf',
+  // },
 ];
 
 export default sources;
