@@ -2,7 +2,7 @@
 import { PerspectiveCamera, Scene } from "three";
 import { OrbitControls } from "three/examples/jsm/Addons.js";
 import Game from "./Game.ts";
-import Viewport from "../engine/Viewport.ts";
+import Viewport from "../utils/Viewport.ts";
 
 export default class View {
   game: Game;

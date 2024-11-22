@@ -4,7 +4,7 @@ import Debug from "../utils/Debug.ts";
 import Resources from "../utils/Resources.ts";
 import sources from "./sources.ts";
 import World from "./world/World.ts";
-import Viewport from "../engine/Viewport.ts";
+import Viewport from "../utils/Viewport.ts";
 import View from "./View.ts";
 import Inputs from "../utils/Inputs.ts";
 import Physics from "./Physics.ts";

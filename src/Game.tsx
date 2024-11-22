@@ -1,5 +1,5 @@
 import useGame from './hooks/useGame.tsx';
-// import Toolbar from '../ui/Toolbar';
+import Toolbar from "./ui/toolbar/Toolbar.tsx";
 
 const Game: React.FC = () => {  
   const gameRef = useGame('canvas-game');
@@ -20,11 +20,11 @@ const Game: React.FC = () => {
 
   return (
     <div>
-      {/* <Toolbar
+      <Toolbar
         id="toolbar-game"
         onAction={handleToolbarAction}
         onSwitch={handleToolbarSwitch}
-      /> */}
+      />
       <canvas className='absolute top-0 left-0' id='canvas-game'/>
     </div>
   );
