@@ -1,4 +1,4 @@
-import { ResourceInfo } from "../utils/Resources.ts";
+import { ResourceInfo } from "../engine/utils/Resources.ts";
 
 const sources: Array<ResourceInfo> = [
   {

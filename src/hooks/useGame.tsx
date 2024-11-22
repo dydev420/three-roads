@@ -1,5 +1,5 @@
 import { useCallback, useEffect, useRef } from "react";
-import Game, { GameContext } from "../game/Game.ts";
+import Game, { GameContext } from "../engine/Game.ts";
 
 const useGame = (canvasId: string): React.MutableRefObject<GameContext|null> => {
   // const containerRef = useRef<HTMLDivElement>();

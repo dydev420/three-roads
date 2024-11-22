@@ -1,4 +1,4 @@
-import { InputMapping } from "../utils/Inputs.ts";
+import { InputMapping } from "../engine/utils/Inputs.ts";
 
 const inputs: Array<InputMapping> = [
   {

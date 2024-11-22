@@ -1,9 +1,9 @@
 // @ts-types="@types/three"
 import { Group, MathUtils, Mesh } from "three";
-import { PhysicsEntity } from "../Physics.ts";
-import IDraggable from "../world/IDraggable.ts";
-import { GridXY } from "../world/LevelGrid.ts";
-import Game from "../Game.ts";
+import { PhysicsEntity } from "../../engine/Physics.ts";
+import IDraggable from "../../engine/world/IDraggable.ts";
+import { GridXY } from "./LevelGrid.ts";
+import Game from "../../engine/Game.ts";
 
 
 export default class GridAsset implements IDraggable {

@@ -1,8 +1,8 @@
 // @ts-types="@types/three"
 import { AnimationAction, AnimationMixer, Group, Mesh, Scene } from "three";
 import { GLTF } from "three/examples/jsm/Addons.js";
-import Resources from "../../utils/Resources.ts";
-import Time from "../../utils/Time.ts";
+import Resources from "../utils/Resources.ts";
+import Time from "../utils/Time.ts";
 import Game from "../Game.ts";
 
 export default class Fox {

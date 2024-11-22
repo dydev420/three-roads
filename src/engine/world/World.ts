@@ -1,12 +1,12 @@
 // @ts-types="@types/three"
 import { Scene } from "three";
 import Environment from "./Environment.ts";
-import Resources from "../../utils/Resources.ts";
+import Resources from "../utils/Resources.ts";
 import { sceneDisposeDeep } from "../helpers/destroy.ts";
 import Fox from "./Fox.ts";
 import Game from "../Game.ts";
-import Level from "./Level.ts";
-import LevelGrid from "./LevelGrid.ts";
+// import Level from "./Level.ts";
+import LevelGrid from "../../game/level/LevelGrid.ts";
 
 export default class World {
   game: Game;

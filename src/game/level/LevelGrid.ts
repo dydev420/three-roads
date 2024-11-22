@@ -2,19 +2,19 @@
 import { Group, Intersection, MeshStandardMaterial } from "three";
 // @ts-types="tweakpane"
 import { FolderApi } from "tweakpane";
-import Game from "../Game.ts";
+import Game from "../../engine/Game.ts";
 // import Floor from "./Floor";
-import IDraggable from "./IDraggable.ts";
-import FloorBlock from "../level/FloorBlock.ts";
-import RaycastPointer from "../../utils/RaycastPointer.ts";
-import Toolbar from "../Toolbar.ts";
-import Inputs, { InputActionEvent } from "../../utils/Inputs.ts";
-import GridAsset from "../level/GridAsset.ts";
-import CityHouse from "../shapes/CityHouse.ts";
-import Road from "../shapes/Road.ts";
-import Ball from "../shapes/Ball.ts";
-import VehicleGraph from "../vehicle/VehicleGraph.ts";
-import RoadMesh from "../vehicle/meshes/RoadMesh.ts";
+import IDraggable from "../../engine/world/IDraggable.ts";
+import FloorBlock from "./FloorBlock.ts";
+import RaycastPointer from "../../engine/utils/RaycastPointer.ts";
+import Toolbar from "../../engine/Toolbar.ts";
+import Inputs, { InputActionEvent } from "../../engine/utils/Inputs.ts";
+import GridAsset from "./GridAsset.ts";
+import CityHouse from "../../engine/shapes/CityHouse.ts";
+import Road from "../../engine/shapes/Road.ts";
+import Ball from "../../engine/shapes/Ball.ts";
+import VehicleGraph from "../../vehicle/VehicleGraph.ts";
+import RoadMesh from "../../vehicle/meshes/RoadMesh.ts";
 
 export type GridXY = {
   x: number;

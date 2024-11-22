@@ -1,16 +1,16 @@
-import Time from "../utils/Time.ts";
+import Time from "./utils/Time.ts";
 import Rendering from "./Rendering.ts";
-import Debug from "../utils/Debug.ts";
-import Resources from "../utils/Resources.ts";
-import sources from "./sources.ts";
+import Debug from "./utils/Debug.ts";
+import Resources from "./utils/Resources.ts";
+import sources from "../game/sources.ts";
 import World from "./world/World.ts";
-import Viewport from "../utils/Viewport.ts";
+import Viewport from "./utils/Viewport.ts";
 import View from "./View.ts";
-import Inputs from "../utils/Inputs.ts";
+import Inputs from "./utils/Inputs.ts";
 import Physics from "./Physics.ts";
 import PhysicsDebug from "./PhysicsDebug.ts";
-import inputs from "./inputs.ts";
-import RaycastPointer from "../utils/RaycastPointer.ts";
+import inputs from "../game/inputs.ts";
+import RaycastPointer from "./utils/RaycastPointer.ts";
 import Toolbar from "./Toolbar.ts";
 
 export type GameSizes = {

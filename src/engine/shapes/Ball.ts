@@ -2,8 +2,8 @@
 import { SphereGeometry, BufferGeometry, Material, Mesh, MeshStandardMaterial, NormalBufferAttributes } from "three";
 
 class Ball extends Mesh {
-  geometry: BufferGeometry<NormalBufferAttributes>;
-  material: Material | Material[];
+  override geometry: BufferGeometry<NormalBufferAttributes>;
+  override material: Material | Material[];
   constructor() {
     super();
     this.geometry = new SphereGeometry(0.1, 16, 16);

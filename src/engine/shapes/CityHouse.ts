@@ -2,8 +2,8 @@
 import { BoxGeometry, BufferGeometry, Color, Material, Mesh, MeshStandardMaterial, NormalBufferAttributes } from "three";
 
 class CityHouse extends Mesh {
-  geometry: BufferGeometry<NormalBufferAttributes>;
-  material: Material | Material[];
+  override geometry: BufferGeometry<NormalBufferAttributes>;
+  override material: Material | Material[];
   constructor() {
     super();
 

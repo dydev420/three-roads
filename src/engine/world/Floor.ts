@@ -1,6 +1,6 @@
 // @ts-types="@types/three"
 import { BoxGeometry, Mesh, MeshStandardMaterial, RepeatWrapping, Scene, SRGBColorSpace, Texture } from "three";
-import Resources from "../../utils/Resources.ts";
+import Resources from "../utils/Resources.ts";
 import Game from "../Game.ts";
 
 export default class Floor {

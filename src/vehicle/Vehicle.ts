@@ -2,7 +2,7 @@
 import { Group, Material, Mesh, Vector3 } from "three";
 import VehicleGraphNode from "./VehicleGraphNode.ts";
 import { FORWARD } from "./VehicleGraph.ts";
-import config from "../config.ts";
+import config from "../game/config.ts";
 
 export default class Vehicle extends Group {
   origin: VehicleGraphNode;

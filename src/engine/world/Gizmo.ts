@@ -1,7 +1,7 @@
 // @ts-types="@types/three"
 import { Intersection } from "three";
-import Inputs, { InputActionEvent } from "../../utils/Inputs.ts";
-import RaycastPointer from "../../utils/RaycastPointer.ts";
+import Inputs, { InputActionEvent } from "../utils/Inputs.ts";
+import RaycastPointer from "../utils/RaycastPointer.ts";
 import Game from "../Game.ts";
 import IDraggable from "./IDraggable.ts";
 import { DragUserData } from "./DraggableMesh.ts";

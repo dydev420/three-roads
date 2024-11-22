@@ -1,9 +1,9 @@
 // @ts-types="@types/three"
 import { Group, Vector3 } from "three";
 import VehicleGraphHelper from "./VehicleGraphHelper.ts";
-import config from "../config.ts";
+import config from "../game/config.ts";
 import Vehicle from "./Vehicle.ts";
-import Box from "../shapes/Box.ts";
+import Box from "../engine/shapes/Box.ts";
 import VehicleGraphTile from "./tiles/VehicleGraphTile.ts";
 import RoadTile from "./tiles/RoadTile.ts";
 

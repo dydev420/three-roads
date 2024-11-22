@@ -1,6 +1,6 @@
 // @ts-types="@types/three"
 import { BoxGeometry, Mesh, MeshStandardMaterial } from "three";
-import { GridXY } from "../world/LevelGrid.ts";
+import { GridXY } from "./LevelGrid.ts";
 
 export default class FloorBlock {
   x: number;

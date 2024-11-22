@@ -2,8 +2,8 @@
 import { BoxGeometry, BufferGeometry, Material, Mesh, MeshStandardMaterial, NormalBufferAttributes } from "three";
 
 class Road extends Mesh {
-  geometry: BufferGeometry<NormalBufferAttributes>;
-  material: Material | Material[];
+  override geometry: BufferGeometry<NormalBufferAttributes>;
+  override material: Material | Material[];
   constructor() {
     super();
     this.geometry = new BoxGeometry(1, 0.2, 1);
