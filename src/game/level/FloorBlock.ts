@@ -1,3 +1,4 @@
+// @ts-types="@types/three"
 import { BoxGeometry, Mesh, MeshStandardMaterial } from "three";
 import { GridXY } from "../world/LevelGrid.ts";
 

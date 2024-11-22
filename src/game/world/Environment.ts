@@ -1,3 +1,4 @@
+// @ts-types="@types/three"
 import { CubeTexture, DirectionalLight, Mesh, MeshStandardMaterial, Scene, SRGBColorSpace } from "three";
 import Resources from "../../utils/Resources.ts";
 import Game from "../Game.ts";

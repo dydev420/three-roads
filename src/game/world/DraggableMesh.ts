@@ -1,3 +1,4 @@
+// @ts-types="@types/three"
 import { Group, Mesh, MeshStandardMaterial } from "three";
 import RAPIER from "@dimforge/rapier3d";
 import IDraggable from "./IDraggable.ts";

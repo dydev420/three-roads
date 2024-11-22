@@ -1,3 +1,4 @@
+// @ts-types="@types/three"
 import { Group, Mesh, Scene } from "three";
 import { GLTF } from "three/examples/jsm/Addons.js";
 import RAPIER from "@dimforge/rapier3d";

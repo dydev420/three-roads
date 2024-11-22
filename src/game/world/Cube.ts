@@ -1,3 +1,4 @@
+// @ts-types="@types/three"
 import { BoxGeometry, Mesh, MeshStandardMaterial } from "three";
 import Game from "../Game.ts";
 import DraggableMesh from "./DraggableMesh.ts";

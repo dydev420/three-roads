@@ -1,3 +1,4 @@
+// @ts-types="@types/three"
 import { Scene } from "three";
 import Environment from "./Environment.ts";
 import Resources from "../../utils/Resources.ts";

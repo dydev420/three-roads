@@ -1,3 +1,4 @@
+// @ts-types="@types/three"
 import { Group, MathUtils, Mesh } from "three";
 import { PhysicsEntity } from "../Physics.ts";
 import IDraggable from "../world/IDraggable.ts";

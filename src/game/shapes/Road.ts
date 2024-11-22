@@ -1,3 +1,4 @@
+// @ts-types="@types/three"
 import { BoxGeometry, BufferGeometry, Material, Mesh, MeshStandardMaterial, NormalBufferAttributes } from "three";
 
 class Road extends Mesh {

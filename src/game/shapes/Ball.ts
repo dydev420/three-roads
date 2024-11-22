@@ -1,3 +1,4 @@
+// @ts-types="@types/three"
 import { SphereGeometry, BufferGeometry, Material, Mesh, MeshStandardMaterial, NormalBufferAttributes } from "three";
 
 class Ball extends Mesh {

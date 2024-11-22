@@ -1,3 +1,4 @@
+// @ts-types="@types/three"
 import { Mesh, Scene } from "three";
 
 export function sceneDisposeDeep(scene: Scene) {

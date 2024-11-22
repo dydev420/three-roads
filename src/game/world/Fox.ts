@@ -1,3 +1,4 @@
+// @ts-types="@types/three"
 import { AnimationAction, AnimationMixer, Group, Mesh, Scene } from "three";
 import { GLTF } from "three/examples/jsm/Addons.js";
 import Resources from "../../utils/Resources.ts";
