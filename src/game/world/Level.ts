@@ -1,3 +1,4 @@
+// @ts-types="tweakpane"
 import { FolderApi } from "tweakpane";
 import { InputActionEvent } from "../../utils/Inputs.ts";
 import Game from "../Game.ts";

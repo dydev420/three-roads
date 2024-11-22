@@ -1,4 +1,6 @@
+// @ts-types="@types/three"
 import { Group, Intersection, MeshStandardMaterial } from "three";
+// @ts-types="tweakpane"
 import { FolderApi } from "tweakpane";
 import Game from "../Game.ts";
 // import Floor from "./Floor";
