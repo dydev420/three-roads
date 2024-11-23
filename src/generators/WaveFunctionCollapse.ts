@@ -42,7 +42,10 @@ export default class WaveFunctionCollapse  extends EventDispatcher{
 
   };
 
-  generateNeighbors = (gridXY: GridXY) => {
+  /**
+   * Updates the tile recomputes the neighbors
+   */
+  update = (x: number, y: number) => {
 
     console.log('Generating neighbors for:', gridXY);
   };
