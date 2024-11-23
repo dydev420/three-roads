@@ -1,4 +1,8 @@
-# Vite + Deno + React + TypeScript
+# Grid Based Road System
+
+## Summary
+
+Tile placement system which places tiles on grid to form connected paths.React renders the DOM and uses three.js for rendering 3D game in canvas
 
 ## Running
 
@@ -11,8 +15,6 @@ $ deno task dev
 ```
 
 ## Deploy
-
-Build production assets:
 
 ```
 $ deno task build
