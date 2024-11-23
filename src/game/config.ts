@@ -2,6 +2,10 @@ import { VehicleConfig } from "../vehicle/VehicleGraph.ts";
 
 export type GameConfig = {
   vehicle: VehicleConfig;
+  grid: {
+    size: number;
+    unitRotation: number;
+  },
 }
 
 const config: GameConfig = {
@@ -13,6 +17,10 @@ const config: GameConfig = {
     spawnInterval: 1000,
     maxRecursiveRetry: 20,
     maxHistory: 4,
+  },
+  grid: {
+    size: 20,
+    unitRotation: 90,
   },
 };
 

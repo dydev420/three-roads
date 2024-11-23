@@ -192,7 +192,7 @@ export default class LevelGrid {
   rotateHoveredTileAsset = () => {
     if (!this.hoveredTile?.asset) return;
     
-    const nextRotation = this.hoveredTile.asset.rotation + 90;
+    const nextRotation = this.hoveredTile.asset.rotation + 1;
     const nextAsset = this.hoveredTile.asset.clone(nextRotation);
     this.setGridAsset(nextAsset);
 

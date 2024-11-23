@@ -1,6 +1,7 @@
 // @ts-types="@types/three"
-import { Group, MathUtils } from "three";
+import { Group } from "three";
 import VehicleGraphNode from "../VehicleGraphNode.ts";
+import { tileToDeg } from "../../engine/helpers/rotation.ts";
 
 export type TileEdge = {
   in: VehicleGraphNode | null;
@@ -27,7 +28,7 @@ export default class VehicleGraphTile extends Group {
     super();
     this.position.set(x, 0, y);
     this.tileRotation = rotation;
-    this.rotation.set(0, MathUtils.degToRad(this.tileRotation), 0);
+    this.rotation.set(0, tileToDeg(this.tileRotation), 0);
 
     this.left = { in: null, out: null };
     this.right = { in: null, out: null };

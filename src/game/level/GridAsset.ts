@@ -1,9 +1,10 @@
 // @ts-types="@types/three"
-import { Group, MathUtils, Mesh } from "three";
+import { Group, Mesh } from "three";
 import { PhysicsEntity } from "../../engine/Physics.ts";
 import IDraggable from "../../engine/world/IDraggable.ts";
 import { GridXY } from "./LevelGrid.ts";
 import Game from "../../engine/Game.ts";
+import { tileToDeg } from "../../engine/helpers/rotation.ts";
 
 
 export default class GridAsset implements IDraggable {
@@ -26,7 +27,7 @@ export default class GridAsset implements IDraggable {
     
     this.rotation = rotation;
     this.type = type;
-    asset.rotation.set(0, MathUtils.degToRad(this.rotation), 0);
+    asset.rotation.set(0, tileToDeg(this.rotation), 0);
     this.entity = this.createGridEntity(asset);
   }
 
