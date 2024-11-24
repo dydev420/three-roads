@@ -86,9 +86,9 @@ export default class WaveFunctionCollapse  extends EventDispatcher {
   regenerate = (x: number, y: number) => {
     const rootTile = this.waveGrid[x + this.size * y];
     
-    const upTile = this.waveGrid[x + this.size * (y-1)];
+    const upTile = this.waveGrid[x + this.size * (y - 1)];
     const rightTile = this.waveGrid[(x + 1) + this.size * y];
-    const downTile = this.waveGrid[x + this.size * (y+1)];
+    const downTile = this.waveGrid[x + this.size * (y + 1)];
     const leftTile = this.waveGrid[(x - 1) + this.size * y];
 
     this.resetTile(rootTile);

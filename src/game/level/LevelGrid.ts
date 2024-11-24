@@ -94,7 +94,6 @@ export default class LevelGrid {
       this.generator.waveGrid.forEach((waveTile) => {
         const { cell, type, rotation } = waveTile;
         this.updateGeneratedTileAsset(type, rotation, cell);
-        console.log('New wave grid meshes');
       });
     })
   }
@@ -243,7 +242,13 @@ export default class LevelGrid {
     // if (!this.hoveredTile?.asset) return;
     if (!type) return;
     const [x, y] = cell;
-    const currentAsset = this.grid[x][y]?.asset;
+    const currentTile = this.grid[x][y];
+    const currentAsset = currentTile?.asset;
+
+    // Skip mesh update for unchanged tiles
+    if(currentAsset?.type === type && currentAsset?.rotation === rotation) {
+      return;
+    }
 
     if (currentAsset) {
       currentAsset.removeFromGrid();
@@ -255,8 +260,9 @@ export default class LevelGrid {
       x,
       y
     });
+    this.grid[x][y].asset = roadAsset;
 
-    // call tool rotate handlers after asset is updated
+    // call tool handler after asset is updated
     this.addRoadNodes(x, y, roadAsset);
   };
 
