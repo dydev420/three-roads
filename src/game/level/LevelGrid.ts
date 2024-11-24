@@ -114,6 +114,22 @@ export default class LevelGrid {
   
     cameraResetBtn.on('click', this.setupCamera);
     camera2DBtn.on('click', this.set2DCamera);
+
+    // generator debug
+    const iterateBtn = this.debug.addButton({
+      title: 'Iterate',
+      label: 'wave fn'
+    });
+    const generateBtn = this.debug.addButton({
+      title: 'Generate',
+      label: 'wave fn'
+    });
+    iterateBtn.on('click', () => {
+      this.generator.iterateWaveCollapse();
+    });
+    generateBtn.on('click', () => {
+      this.generator.setRunning(true)
+    });
   };
 
   createGrid = () => {
@@ -342,10 +358,15 @@ export default class LevelGrid {
    */
   update = () => {
     this.hoverGrid();
-
+    
     // call update on each system
     for (const system of this.systems) {
       system.update();
+    }
+    
+    // update generator
+    if (this.generator) {
+      this.generator.update();
     }
   };
 }

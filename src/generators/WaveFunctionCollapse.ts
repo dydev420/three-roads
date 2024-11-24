@@ -1,6 +1,6 @@
 // @ts-types="@types/three"
 import { EventDispatcher } from "three";
-import { pickRandom, rotateArray } from "../engine/helpers/array.ts";
+import { pickRandom } from "../engine/helpers/array.ts";
 import sockets from "./sockets.ts";
 import { TileSocketConfig } from "./Tiles.ts";
 import { reverseString } from "../engine/helpers/string.ts";
@@ -11,6 +11,7 @@ export type WaveTile = {
   options: number[];
   cell: number[];
   type: string | null;
+  rotation: number;
 }
 
 export type WaveTileDomains = {
@@ -39,6 +40,7 @@ export default class WaveFunctionCollapse  extends EventDispatcher{
     this.tileDomains = [];
 
     this.setupGrid();
+    this.setupTileDomains();
     this.analyzeAllTiles();
 
     console.log('WaveFunctionCollapse:: init size', size);
@@ -83,10 +85,23 @@ export default class WaveFunctionCollapse  extends EventDispatcher{
         // cell: [Math.floor(i / DIM), i % DIM ],
         cell: [i % this.size, Math.floor(i / this.size)],
         type: null,
+        rotation: 0,
       }
     }
 
     console.log('WaveFunctionCollapse:: setupGrid', this.waveGrid);
+  };
+
+  setupTileDomains = () => {
+    this.tileDomains = this.tiles.map(() => {
+      return {
+        up: [],
+        right: [],
+        down: [],
+        left: []
+      };
+    })
+    console.log('WaveFunctionCollapse:: setupTileDomains', this.tileDomains);
   };
 
   compareEdge = (edge1: string, edge2: string) => {
@@ -158,7 +173,7 @@ export default class WaveFunctionCollapse  extends EventDispatcher{
         return;
       }
       
-      console.log('All Collapsed');
+      console.log('All Collapsed', this.waveGrid);
       
       this.done = true;
       this.running = false;
@@ -191,7 +206,7 @@ export default class WaveFunctionCollapse  extends EventDispatcher{
 
     const pickedTile = this.tiles[pick];
     cell.type = pickedTile.type;
-    // cell.rotation = pickedTile.rotation;
+    cell.rotation = pickedTile.rotation;
     cell.options = [pick];
 
 
@@ -266,7 +281,8 @@ export default class WaveFunctionCollapse  extends EventDispatcher{
           collapsed: false,
           // cell: currentGrid[index].cell,
           cell: [i, j],
-          type: null
+          type: null,
+          rotation: 0,
         }
       }
     }
