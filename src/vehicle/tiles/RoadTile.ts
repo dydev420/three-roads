@@ -8,6 +8,7 @@ import TRoadTile from "./TRoadTile.ts";
 abstract class RoadTile {
   static create(x: number, y: number, rotation: number, type: string): VehicleGraphTile {
     switch (type) {
+      case 'blank': return new VehicleGraphTile(x, y, rotation);
       case 'straight': return new StraightRoadTile(x, y, rotation);
       case 't': return new TRoadTile(x, y, rotation);
       case 'cross': return new CrossRoadTile(x, y, rotation);
