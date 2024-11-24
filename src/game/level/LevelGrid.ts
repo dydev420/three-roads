@@ -53,6 +53,7 @@ export default class LevelGrid {
   transforms: Array<IDraggable>;
   systems: Array<GridSystem>; // TODO: Define interface for level system
   generator: WaveFunctionCollapse; // TODO: Combine with system or new interface
+  wavedCollapsed: boolean; // TODO: Combine with system or new interface
 
   constructor(game: Game) {
     this.game = game;
@@ -85,6 +86,7 @@ export default class LevelGrid {
 
     // setup generator
     this.generator = new WaveFunctionCollapse(this.size);
+    this.wavedCollapsed = false;
 
     // @ts-expect-error never
     this.inputs.addEventListener('click', this.onInputClick);
@@ -222,6 +224,27 @@ export default class LevelGrid {
     this.handleRoadTool();
   };
 
+  updateGeneratedTileAsset = (type: string | null, rotation: number, cell: number[]) => {
+    // if (!this.hoveredTile?.asset) return;
+    if (!type) return;
+    const [x, y] = cell;
+    const currentAsset = this.grid[x][y]?.asset;
+
+    if (currentAsset) {
+      currentAsset.removeFromGrid();
+    }
+
+    const roadMesh = RoadMesh.create(type, 0);
+    const roadAsset = new GridAsset(this.game, roadMesh, rotation, type);
+    roadAsset.addToGrid({
+      x,
+      y
+    });
+
+    // call tool rotate handlers after asset is updated
+    this.addRoadNodes(x, y, roadAsset);
+  };
+
   removeHoveredTileAsset = () => {
     if(!this.hoveredTile) {
       return;
@@ -269,6 +292,21 @@ export default class LevelGrid {
         this.addRoadAsset(roadType, rotation);
         vehicleGraph.updateTile(this.hoveredTile.x, this.hoveredTile.y, roadType, rotation);
       }
+    }
+  };
+
+  addRoadNodes = (x: number = 0, y: number = 0, asset?: GridAsset) => {
+    if (!this.systems.length) return;
+    const vehicleGraph = this.systems[0].group;
+
+    if (vehicleGraph instanceof VehicleGraph) {
+      if (!asset?.type ) {
+        vehicleGraph.updateTile(x, y, null);
+        return;
+      }
+
+      const { type , rotation } = asset;
+      vehicleGraph.updateTile(x, y, type, rotation);
     }
   };
 
@@ -366,6 +404,18 @@ export default class LevelGrid {
     
     // update generator
     if (this.generator) {
+      if (this.generator.done && !this.wavedCollapsed) {
+        this.generator.waveGrid.forEach((waveTile) => {
+          const { cell, type, rotation } = waveTile;
+          this.updateGeneratedTileAsset(type, rotation, cell);
+          console.log('updated meshes');
+          
+        })
+
+        // do not repeat once changes rendered
+        this.wavedCollapsed = true;
+      }
+      
       this.generator.update();
     }
   };
