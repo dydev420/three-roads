@@ -1,6 +1,6 @@
 // @ts-types="@types/three"
 import { EventDispatcher } from "three";
-import { GridXY } from "../game/level/LevelGrid.ts";
+import { rotateArray } from "../engine/helpers/array.ts";
 
 
 export type TileSocketConfig = {
@@ -34,7 +34,8 @@ export default class WaveFunctionCollapse  extends EventDispatcher{
     return Array.from({ length: sockets.length }).map((_, i) => ({
       type,
       rotation: i,
-      sockets: WaveFunctionCollapse.getRotatedSockets(i, sockets)
+      // sockets: WaveFunctionCollapse.getRotatedSockets(i, sockets)
+      sockets: rotateArray(sockets, i)
     } as TileSocketConfig));
   }
 
@@ -43,10 +44,10 @@ export default class WaveFunctionCollapse  extends EventDispatcher{
   };
 
   /**
-   * Updates the tile recomputes the neighbors
+   *recomputes the tile and its neighbors by running collapsing all tiles again
    */
-  update = (x: number, y: number) => {
+  regenerate = (x: number, y: number) => {
 
-    console.log('Generating neighbors for:', gridXY);
+    console.log('Generating neighbors for:', x, y);
   };
 }
