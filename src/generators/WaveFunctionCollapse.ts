@@ -224,9 +224,9 @@ export default class WaveFunctionCollapse  extends EventDispatcher{
 
         let nextOptions = Array.from(this.tiles, (_t, index) => index);
 
-        // Look Up (+y), need -y
-        if(j < this.size - 1) {
-          const upTile = currentGrid[i + (j + 1) * this.size];
+        // Look Up (-y)
+        if(j > 0) {
+          const upTile = currentGrid[i + (j - 1) * this.size];
           let validOptions: number[] = [];
 
           upTile.options.forEach((option) => {
@@ -238,8 +238,8 @@ export default class WaveFunctionCollapse  extends EventDispatcher{
         }
 
         // Look Right (+x)
-        if(i > 0) {
-          const rightTile = currentGrid[(i - 1) + j * this.size];
+        if(i < this.size - 1) {
+          const rightTile = currentGrid[(i + 1) + j * this.size];
           let validOptions: number[] = [];
 
           rightTile.options.forEach((option) => {
@@ -250,9 +250,9 @@ export default class WaveFunctionCollapse  extends EventDispatcher{
           nextOptions = this.filterByValidOptions(nextOptions, validOptions);
         }
         
-        // Look Down
-        if(j > 0) {
-          const downTile = currentGrid[i + (j - 1) * this.size];
+        // Look Down (+y)
+        if(j < this.size - 1) {
+          const downTile = currentGrid[i + (j + 1) * this.size];
           let validOptions: number[] = [];
 
           downTile.options.forEach((option) => {
@@ -263,9 +263,9 @@ export default class WaveFunctionCollapse  extends EventDispatcher{
           nextOptions = this.filterByValidOptions(nextOptions, validOptions);
         }
 
-        // Look Left
-        if(i < this.size - 1) {
-          const leftTile = currentGrid[i + 1 + j * this.size];
+        // Look Left (-x)
+        if(i > 0) {
+          const leftTile = currentGrid[(i - 1) + j * this.size];
           let validOptions: number[] = [];
 
           leftTile.options.forEach((option) => {
