@@ -53,7 +53,6 @@ export default class LevelGrid {
   transforms: Array<IDraggable>;
   systems: Array<GridSystem>; // TODO: Define interface for level system
   generator: WaveFunctionCollapse; // TODO: Combine with system or new interface
-  wavedCollapsed: boolean; // TODO: Combine with system or new interface
 
   constructor(game: Game) {
     this.game = game;
@@ -86,10 +85,18 @@ export default class LevelGrid {
 
     // setup generator
     this.generator = new WaveFunctionCollapse(this.size);
-    this.wavedCollapsed = false;
 
     // @ts-expect-error never
     this.inputs.addEventListener('click', this.onInputClick);
+
+    // @ts-expect-error never
+    this.generator.addEventListener('collapsed', () => {
+      this.generator.waveGrid.forEach((waveTile) => {
+        const { cell, type, rotation } = waveTile;
+        this.updateGeneratedTileAsset(type, rotation, cell);
+        console.log('New wave grid meshes');
+      });
+    })
   }
 
   createDebugFolder = () => {
@@ -194,9 +201,17 @@ export default class LevelGrid {
   };
 
   addRoad = () => {
-    const roadMesh = new Road();
-    const gridAsset = new GridAsset(this.game, roadMesh,);
-    this.setGridAsset(gridAsset);
+    /**
+     * auto road tool hANDLING
+     */
+    if (!this.hoveredTile) return;
+    const { x, y } = this.hoveredTile;
+
+    this.generator.regenerate(x, y);
+
+    // const roadMesh = new Road();
+    // const gridAsset = new GridAsset(this.game, roadMesh,);
+    // this.setGridAsset(gridAsset);
   };
 
   addCity = () => {
@@ -404,18 +419,6 @@ export default class LevelGrid {
     
     // update generator
     if (this.generator) {
-      if (this.generator.done && !this.wavedCollapsed) {
-        this.generator.waveGrid.forEach((waveTile) => {
-          const { cell, type, rotation } = waveTile;
-          this.updateGeneratedTileAsset(type, rotation, cell);
-          console.log('updated meshes');
-          
-        })
-
-        // do not repeat once changes rendered
-        this.wavedCollapsed = true;
-      }
-      
       this.generator.update();
     }
   };

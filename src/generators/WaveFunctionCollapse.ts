@@ -21,7 +21,7 @@ export type WaveTileDomains = {
   left: number[];
 }
 
-export default class WaveFunctionCollapse  extends EventDispatcher{
+export default class WaveFunctionCollapse  extends EventDispatcher {
   size: number;
   running: boolean;
   done: boolean;
@@ -50,6 +50,19 @@ export default class WaveFunctionCollapse  extends EventDispatcher{
     this.running = start;
   };
 
+  start = () => {
+    this.done = false;
+    this.running = true;
+  };
+
+  finish = () => {
+    this.done = true;
+    this.running = false;
+
+    // @ts-expect-error never
+    this.dispatchEvent({ type: 'collapsed' });
+  };
+
   update = () => {
     if (this.running) {
       this.iterateWaveCollapse();
@@ -60,11 +73,31 @@ export default class WaveFunctionCollapse  extends EventDispatcher{
 
   };
 
+  resetTile = (tile: WaveTile) => {
+    tile.collapsed = false;
+    tile.options = Array.from(this.tiles, (_t, index) => index);
+    tile.type = null;
+    tile.rotation = 0;
+  };
+
   /**
    * recomputes the tile and its neighbors by running collapsing all tiles again
    */
   regenerate = (x: number, y: number) => {
-    console.log('Generating neighbors for:', x, y);
+    const rootTile = this.waveGrid[x + this.size * y];
+    
+    const upTile = this.waveGrid[x + this.size * (y-1)];
+    const rightTile = this.waveGrid[(x + 1) + this.size * y];
+    const downTile = this.waveGrid[x + this.size * (y+1)];
+    const leftTile = this.waveGrid[(x - 1) + this.size * y];
+
+    this.resetTile(rootTile);
+    this.resetTile(upTile);
+    this.resetTile(rightTile);
+    this.resetTile(downTile);
+    this.resetTile(leftTile);
+
+    this.start();
   };
 
 
@@ -175,8 +208,7 @@ export default class WaveFunctionCollapse  extends EventDispatcher{
       
       console.log('All Collapsed', this.waveGrid);
       
-      this.done = true;
-      this.running = false;
+      this.finish();
       return;
     }
 
@@ -199,8 +231,7 @@ export default class WaveFunctionCollapse  extends EventDispatcher{
     if(pick === undefined) {
       console.log('Error NO Options left:: Backtracking required ahead');
       
-      this.done = true;
-      this.running = false;
+      this.finish();
       return;
     }
 
