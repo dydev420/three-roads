@@ -83,39 +83,39 @@ export default class VehicleGraphTile extends Group {
   getWorldTopEdge = () => {
     switch(this.tileRotation) {
       case 0: return this.top;
-      case 90: return this.right;
-      case 180: return this.bottom;
-      case 270: return this.left;
+      case 1: return this.left;
+      case 2: return this.bottom;
+      case 3: return this.right;
       default: return this.top;
-    }
-  };
-
-  getWorldBottomEdge = () => {
-    switch(this.tileRotation) {
-      case 0: return this.bottom;
-      case 90: return this.left;
-      case 180: return this.top;
-      case 270: return this.right;
-      default: return this.bottom;
     }
   };
 
   getWorldRightEdge = () => {
     switch(this.tileRotation) {
       case 0: return this.right;
-      case 90: return this.bottom;
-      case 180: return this.left;
-      case 270: return this.top;
+      case 1: return this.top;
+      case 2: return this.left;
+      case 3: return this.bottom;
       default: return this.right;
+    }
+  };
+
+  getWorldBottomEdge = () => {
+    switch(this.tileRotation) {
+      case 0: return this.bottom;
+      case 1: return this.right;
+      case 2: return this.top;
+      case 3: return this.left;
+      default: return this.bottom;
     }
   };
 
   getWorldLeftEdge = () => {
     switch(this.tileRotation) {
       case 0: return this.left;
-      case 90: return this.top;
-      case 180: return this.right;
-      case 270: return this.bottom;
+      case 1: return this.bottom;
+      case 2: return this.right;
+      case 3: return this.top;
       default: return this.left;
     }
   };

@@ -12,7 +12,7 @@ export function pickRandom<Type extends string> (list: Type[]): Type {
  * 
  * changes original array
  */
-export function reverse<Type extends string> (arr: Type[], start: number, end: number) {
+export function reverse<Type> (arr: Type[], start: number, end: number) {
   while (start < end) {
     [arr[start], arr[end]] = [arr[end], arr[start]]; // Swap elements
     start++;
@@ -25,7 +25,7 @@ export function reverse<Type extends string> (arr: Type[], start: number, end: n
  * 
  * changes original array
  */
-export function rotateArray<Type extends string> (list: Type[], rotation: number): Type[] {
+export function rotateArray<Type> (list: Type[], rotation: number): Type[] {
   const len = list.length;
   const newList: Type[] = [];
 
@@ -35,7 +35,7 @@ export function rotateArray<Type extends string> (list: Type[], rotation: number
   return newList;
 }
 
-export function rotateArrayInPlace<Type extends string>(list: Type[], rotation: number): Type[] {
+export function rotateArrayInPlace<Type>(list: Type[], rotation: number): Type[] {
   const len = list.length;
   rotation = ((rotation % len) + len) % len; // Normalize rotation to handle negative values or large numbers
 
