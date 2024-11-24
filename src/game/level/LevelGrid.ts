@@ -3,6 +3,7 @@ import { Group, Intersection, MeshStandardMaterial } from "three";
 // @ts-types="tweakpane"
 import { FolderApi } from "tweakpane";
 import Game from "../../engine/Game.ts";
+import config from '../config.ts';
 // import Floor from "./Floor";
 import IDraggable from "../../engine/world/IDraggable.ts";
 import FloorBlock from "./FloorBlock.ts";
@@ -15,6 +16,7 @@ import Road from "../../engine/shapes/Road.ts";
 import Ball from "../../engine/shapes/Ball.ts";
 import VehicleGraph from "../../vehicle/VehicleGraph.ts";
 import RoadMesh from "../../vehicle/meshes/RoadMesh.ts";
+import WaveFunctionCollapse from "../../generators/WaveFunctionCollapse.ts";
 
 export type GridXY = {
   x: number;
@@ -50,6 +52,7 @@ export default class LevelGrid {
   // gizmo: Gizmo;
   transforms: Array<IDraggable>;
   systems: Array<GridSystem>; // TODO: Define interface for level system
+  generator: WaveFunctionCollapse; // TODO: Combine with system or new interface
 
   constructor(game: Game) {
     this.game = game;
@@ -59,7 +62,7 @@ export default class LevelGrid {
     this.inputs = this.game.inputs;
     this.pointer = this.game.pointer;
     this.toolbar = this.game.toolbar;
-    this.size = 20;
+    this.size = config.grid.size;
     this.transforms = [];
     this.systems = [];
     // this.floor = new Floor(this.width, this.height);
@@ -79,6 +82,9 @@ export default class LevelGrid {
 
     // Init systems
     this.setupSystems();
+
+    // setup generator
+    this.generator = new WaveFunctionCollapse(this.size);
 
     // @ts-expect-error never
     this.inputs.addEventListener('click', this.onInputClick);

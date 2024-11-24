@@ -1,35 +1,35 @@
-import WaveFunctionCollapse, { TileSocketConfig } from "./WaveFunctionCollapse.ts";
+import Tiles, { TileSocketConfig } from "./Tiles.ts";
 
 const sockets: TileSocketConfig[] = [
    /**
    * Blank tile
   */
-  ...WaveFunctionCollapse.generateTileSockets('blank',  ['AAA', 'AAA', 'AAA', 'AAA']),
+  ...Tiles.generateTileSockets('blank',  ['AAA', 'AAA', 'AAA', 'AAA']),
   
   /**
    * Straight road
   */
-  ...WaveFunctionCollapse.generateTileSockets('straight',  ['ABA',  'AAA', 'ABA', 'AAA']),
+  ...Tiles.generateTileSockets('straight',  ['ABA',  'AAA', 'ABA', 'AAA']),
   
   /**
    * End road
    */
-  ...WaveFunctionCollapse.generateTileSockets('end',  ['AAA', 'AAA', 'ABA', 'AAA']),
+  ...Tiles.generateTileSockets('end',  ['AAA', 'AAA', 'ABA', 'AAA']),
   
   /**
    * Corner road
   */
-  ...WaveFunctionCollapse.generateTileSockets('corner',  ['AAA', 'ABA', 'ABA', 'AAA']),
+  ...Tiles.generateTileSockets('corner',  ['AAA', 'ABA', 'ABA', 'AAA']),
   
   /**
    * T intersection
   */
-  ...WaveFunctionCollapse.generateTileSockets('t',  ['AAA', 'ABA', 'ABA', 'ABA']),
+  ...Tiles.generateTileSockets('t',  ['AAA', 'ABA', 'ABA', 'ABA']),
   
   /**
    * Cross intersection
   */
-  ...WaveFunctionCollapse.generateTileSockets('cross',  ['ABA', 'ABA', 'ABA', 'ABA']),
+  ...Tiles.generateTileSockets('cross',  ['ABA', 'ABA', 'ABA', 'ABA']),
 ];
 
 export default sockets;
