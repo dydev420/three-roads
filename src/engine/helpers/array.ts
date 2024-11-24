@@ -3,7 +3,7 @@ type ArrayType<T> = T[];
 /**
    * Returns a random element from given array
    */
-export function pickRandom<Type extends string> (list: Type[]): Type {
+export function pickRandom<Type> (list: Type[]): Type {
   return list[Math.floor((Math.random() * list.length))];
 }
 
